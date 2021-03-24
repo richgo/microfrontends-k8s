@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "inventory-api.fullname" . }}
+  labels:
+    {{- include "inventory-api.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  externalName: {{ .Values.externalName | quote }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "inventory-api.selectorLabels" . | nindent 4 }}

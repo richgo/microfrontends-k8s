@@ -1,0 +1,33 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+
+metadata:
+  name: microfrontends
+
+requires:
+ - path: accounts-app
+ - path: products-app
+ - path: home-app
+
+
+# portForward:
+# - resourceType: deployment
+#   resourceName: home-app
+#   namespace: home
+#   port: 3000
+#   localPort: 3000
+# - resourceType: deployment
+#   resourceName: products-app
+#   namespace: products
+#   port: 3002
+#   localPort: 3002
+# - resourceType: deployment
+#   resourceName: accounts-app
+#   namespace: accounts
+#   port: 3001
+#   localPort: 3001
+# - resourceType: deployment
+#   resourceName: gateway-server
+#   namespace: home
+#   port: 4000
+#   localPort: 4000

@@ -1,0 +1,34 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+
+metadata:
+  name: accounts-app
+
+build:
+  tagPolicy:
+    sha256: {}
+  local:
+    useBuildkit: true
+    concurrency: 4
+  artifacts:
+    - image: accounts-api
+      context: server/api
+      docker: {}
+    - image: accounts-app
+      context: client/account
+      docker: {}
+
+deploy:
+  helm:
+    releases:
+      - name: accounts-api
+        chartPath: server/k8s
+        artifactOverrides:
+          image.repository: accounts-api
+        namespace: accounts
+        createNamespace: true
+      - name: accounts-app
+        chartPath: client/k8s
+        artifactOverrides:
+          image.repository: accounts-app
+        namespace: accounts

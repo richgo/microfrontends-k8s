@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "reviews-api.fullname" . }}
+  labels:
+    {{- include "reviews-api.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  externalName: {{ .Values.externalName | quote }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "reviews-api.selectorLabels" . | nindent 4 }}

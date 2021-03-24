@@ -1,0 +1,15 @@
+.git
+.vscode
+.ionide
+.next
+.temp
+coverage
+deploy
+docker
+docs
+node_modules
+out
+scripts
+dev
+release
+tooling

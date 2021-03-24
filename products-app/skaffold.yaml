@@ -1,0 +1,50 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+
+metadata:
+  name: products-app
+
+build:
+  tagPolicy:
+    sha256: {}
+  local:
+    useBuildkit: true
+    concurrency: 4
+  artifacts:
+    - image: products-api
+      context: server/products/api
+      docker: {}
+    - image: inventory-api
+      context: server/inventory/api
+      docker: {}
+    - image: reviews-api
+      context: server/reviews/api
+      docker: {}
+    - image: products-app
+      context: client/product
+      docker: {}
+
+deploy:
+  helm:
+    releases:
+      - name: products-api
+        chartPath: server/products/k8s
+        artifactOverrides:
+          image.repository: products-api
+        namespace: products
+        createNamespace: true
+      - name: inventory-api
+        chartPath: server/inventory/k8s
+        artifactOverrides:
+          image.repository: inventory-api
+        namespace: products
+      - name: reviews-api
+        chartPath: server/reviews/k8s
+        artifactOverrides:
+          image.repository: reviews-api
+        namespace: products
+      - name: products-app
+        chartPath: client/k8s
+        artifactOverrides:
+          image.repository: products-app
+        namespace: products

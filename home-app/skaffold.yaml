@@ -1,0 +1,34 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+
+metadata:
+  name: home-app
+
+build:
+  tagPolicy:
+    sha256: {}
+  local:
+    useBuildkit: true
+    concurrency: 4
+  artifacts:
+    - image: home-app
+      context: client/app
+      docker: {}
+    - image: gateway-server
+      context: server/api
+      docker: {}
+
+deploy:
+  helm:
+    releases:
+      - name: home-app
+        chartPath: client/k8s
+        artifactOverrides:
+          image.repository: home-app
+        namespace: home
+        createNamespace: true
+      - name: gateway-server
+        chartPath: server/k8s
+        artifactOverrides:
+          image.repository: gateway-server
+        namespace: home

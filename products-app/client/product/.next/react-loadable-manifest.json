@@ -1,0 +1,74 @@
+{
+  "../components/Header": [
+    {
+      "id": "./components/Header.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@babel/runtime/helpers/extends.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@babel/runtime/helpers/iterableToArray.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@babel/runtime/helpers/nonIterableSpread.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@babel/runtime/helpers/toConsumableArray.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/next/dist/client/image.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/next/dist/next-server/lib/to-base-64.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/next/dist/next-server/server/image-config.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/next/image.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/string-hash/index.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/styled-jsx/dist/lib/stylesheet.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/styled-jsx/dist/style.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/styled-jsx/dist/stylesheet-registry.js",
+      "file": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/styled-jsx/style.js",
+      "file": "static/chunks/1.js"
+    }
+  ],
+  "./dev/noop": [
+    {
+      "id": "./node_modules/next/dist/client/dev/noop.js",
+      "file": "static/chunks/0.js"
+    }
+  ]
+}
