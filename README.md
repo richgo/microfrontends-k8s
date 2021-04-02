@@ -1,64 +1,46 @@
-# micro-frontend-basic
+# micro-frontend-K8s
 
-A basic implementation of micro-frontends using NextJs zones and federated Apollo GraphQL
+A kubernetes implementation of this microfronts example: https://github.com/richgo/micro-frontend-basic.  Using NextJs zones and federated Apollo GraphQL
 
-All client and server applications need to be running in order to see the applciation working. To do this:
+## Architcture
 
-[1] Start the GraphQL servers by running the following commands from separate terminals:
+The application we are building is comprised of a Nexts Js app, 2x Next Js zone apps, an Apollo Gateway and 4x Apollo servers (federated). It looks like this:
 
-```sh
-cd gateway-server
-```
+![image](https://user-images.githubusercontent.com/11230812/113388708-a2bb0b80-9386-11eb-9c50-38e493f7e508.png)
 
-then run:
+The principles of this architecture are to be decoupled both horizontally and vertically, enabling teams to align around product areas whilst maintaining consistency.
 
-```sh
-yarn run start-services
-```
+## Pre-reqs
 
-and:
+[1] K8s running under Docker desktop https://www.docker.com/products/docker-desktop
+[2] Helm 3 https://helm.sh/docs/intro/install/
+[3] Ingress https://kubernetes.github.io/ingress-nginx/deploy/
+[4] Google Skaffold ( > 1.18 for module support) https://skaffold.dev/docs/install/
+[5] DNS (dnsmasq or hosts file will work)  127.0.0.1  w.fakefurniture.local graph.fakefurniture.local p.fakefurniture.local a.fakefurtniture.local
+[6] Node https://nodejs.org/en/download/
 
-```sh
-yarn run start-gateway
-```
-
-You should now see a working Apollo gateway on http://localhost:4000
-
-[2] Start the clients.
-To do this for the home-app in a new terminal:
+## Build & Deploy
 
 ```sh
-cd home-app/client
+skaffold dev
 ```
 
-then run:
+That's it! Docker Builkit will now build 8 containers, Helm will deploy them and Skaffold will watch for file changes and give you hot-reloading (build/deploy) whenever you change code.
 
-```sh
-yarn && yarn dev
-```
+## Test
 
-for the product-app in a new terminal:
+You should now see a rather rubbish looking website here:
 
-```sh
-cd product-app/client/product
-```
+w.fakefurniture.local
 
-then run:
+and graph QL playground here:
 
-```sh
-yarn && yarn dev
-```
+graph.fakefurniture.local
 
-For the account-app in a new terminal:
+individual next zone apps can be found here:
 
-```sh
-cd account-app/client/account
-```
+p.fakefurniture.local
+a.fakefurtniture.local
 
-then run:
 
-```sh
-yarn && yarn dev
-```
 
-Tou should now find a NextJs application working on http://localhost:3000
