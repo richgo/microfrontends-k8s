@@ -12,12 +12,12 @@ The principles of this architecture are to be decoupled both horizontally and ve
 
 ## Pre-reqs
 
-[1] K8s running under Docker desktop https://www.docker.com/products/docker-desktop
-[2] Helm 3 https://helm.sh/docs/intro/install/
-[3] Ingress https://kubernetes.github.io/ingress-nginx/deploy/
-[4] Google Skaffold ( > 1.18 for module support) https://skaffold.dev/docs/install/
-[5] DNS (dnsmasq or hosts file will work)  127.0.0.1  w.fakefurniture.local graph.fakefurniture.local p.fakefurniture.local a.fakefurtniture.local
-[6] Node https://nodejs.org/en/download/
+1. K8s running under Docker desktop https://www.docker.com/products/docker-desktop
+2. Helm 3 https://helm.sh/docs/intro/install/
+3. Ingress https://kubernetes.github.io/ingress-nginx/deploy/
+4. Google Skaffold ( > 1.18 for module support) https://skaffold.dev/docs/install/
+5. DNS (dnsmasq or hosts file will work)  127.0.0.1  w.fakefurniture.local graph.fakefurniture.local p.fakefurniture.local a.fakefurtniture.local
+6. Node https://nodejs.org/en/download/
 
 ## Build & Deploy
 
@@ -31,16 +31,16 @@ That's it! Docker Builkit will now build 8 containers, Helm will deploy them and
 
 You should now see a rather rubbish looking website here:
 
-w.fakefurniture.local
+http://w.fakefurniture.local
 
 and graph QL playground here:
 
-graph.fakefurniture.local
+http://graph.fakefurniture.local
 
 individual next zone apps can be found here:
 
-p.fakefurniture.local
-a.fakefurtniture.local
+http://p.fakefurniture.local
+http://a.fakefurtniture.local
 
 
 
